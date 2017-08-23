@@ -9,6 +9,14 @@ from keras.utils import np_utils
 
 
 def main(x_train, x_test, y_train, y_test):
+    """
+    Build, fit and evaluate model.
+    :param x_train: Training data input
+    :param x_test: Test data input
+    :param y_train: Training data output
+    :param y_test: Test data output
+    :return: Model fitted on training data and evaluated by test data.
+    """
     model = Sequential()
     model.add(Dense(units=100, input_dim=784))
     model.add(Activation('sigmoid'))
@@ -28,6 +36,14 @@ def main(x_train, x_test, y_train, y_test):
 
 
 def preprocessing(x_train, y_train, x_test, y_test):
+    """
+    Preprocess data for use with Keras Sequential model.
+    :param x_train: Training data input
+    :param y_train: Training data output
+    :param x_test: Test data input
+    :param y_test: Test data output
+    :return:
+    """
     num_pixels = x_train.shape[1] * x_train.shape[2]
     x_train = x_train.reshape(x_train.shape[0], num_pixels).astype('float32')
     x_test = x_test.reshape(x_test.shape[0], num_pixels).astype('float32')
